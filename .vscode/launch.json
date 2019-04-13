@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - QuickSort",
+            "request": "launch",
+            "mainClass": "cn.jiuyoung.QuickSort",
+            "projectName": "practice1"
+        }
+    ]
+}
