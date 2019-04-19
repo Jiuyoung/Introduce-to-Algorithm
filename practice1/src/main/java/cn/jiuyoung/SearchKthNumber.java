@@ -3,11 +3,14 @@ package cn.jiuyoung;
 /**
  * SearchKthNumber
  * 利用二分查找的思想，每次排除一个数组的一半，直到一个数组全部被划分完，此时，需要找的这个数在另一个数组中。
+ * 给定的数组是从小到大排序，所以将找第K大元素转换为第K小。
  */
 public class SearchKthNumber {
 
     public static int Search(int[] a, int[] b, int k) {
 
+        //转换为找第K小的数
+        k = a.length + b.length - k + 1;
         if(a.length + b.length < k) 
             return 0;
         else

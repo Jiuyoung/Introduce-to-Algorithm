@@ -15,6 +15,7 @@ public class SearchKthNumberTest {
         int[] b = {2, 4, 57, 88, 94, 290, 34343666};
         int[] aAndB = new int[a.length + b.length];
         FindSum.MergeSort.merge(aAndB, a, b);
-        assertEquals(aAndB[12 - 1], SearchKthNumber.Search(a, b, 12));
+        assertEquals(aAndB[3], SearchKthNumber.Search(a, b, 12));
+        assertEquals(aAndB[12], SearchKthNumber.Search(a, b, 3));
     }
 }
