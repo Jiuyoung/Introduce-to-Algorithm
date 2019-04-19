@@ -70,7 +70,7 @@ public class MatrixChain {
         }
         else {
             str.append('(');
-            optimalParens(i,           s[i][j], str);
+            optimalParens(          i, s[i][j], str);
             optimalParens(s[i][j] + 1,       j, str);
             str.append(')');
         }

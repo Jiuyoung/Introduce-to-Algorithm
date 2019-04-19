@@ -41,7 +41,7 @@ public class MaxPriorityQueue {
     public int extractMax() {
         if (amount < 1)
             return Integer.MIN_VALUE;
-        int max = maximum();
+        int max  = maximum();
         queue[1] = queue[amount];
         amount--;
         sink(1);
@@ -56,11 +56,11 @@ public class MaxPriorityQueue {
         int parent = position / 2;
         while (position > 1 && queue[parent] < queue[position]) {
             //原地置换两个数据
-            queue[parent] = queue[parent] + queue[position];
+            queue[parent]   = queue[parent] + queue[position];
             queue[position] = queue[parent] - queue[position];
-            queue[parent] = queue[parent] - queue[position];
+            queue[parent]   = queue[parent] - queue[position];
             position = parent;
-            parent = position / 2;
+            parent   = position / 2;
         }
     }
 
@@ -77,7 +77,7 @@ public class MaxPriorityQueue {
             if (queue[position] >= queue[k])
                 return;
             queue[position] = queue[position] + queue[k];
-            queue[k] = queue[position] - queue[k];
+            queue[k]        = queue[position] - queue[k];
             queue[position] = queue[position] - queue[k];
             position = k;
         }

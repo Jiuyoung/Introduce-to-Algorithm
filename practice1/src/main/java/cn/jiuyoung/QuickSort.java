@@ -12,8 +12,8 @@ public class QuickSort {
     private static void sort(int[] a, int p, int r) {
         if(p < r) {
             int q = patition(a, p, r);
-            sort(a, p, q - 1);
-            sort(a, q + 1, r);
+            sort(a,     p, q - 1);
+            sort(a, q + 1,     r);
         }
     }
 

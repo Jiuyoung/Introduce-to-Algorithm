@@ -39,9 +39,9 @@ public class FindSum {
         private static void sort(int[] a, int lower, int hight) {
             if (hight <= lower) return;
             int mid = (lower + hight) / 2;
-            sort(a, lower, mid);
+            sort(a,   lower,   mid);
             sort(a, mid + 1, hight);
-            merge(a, lower, mid, hight);
+            merge(a,  lower, mid, hight);
         }
     
         /**
