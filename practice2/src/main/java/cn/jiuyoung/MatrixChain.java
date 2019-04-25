@@ -5,42 +5,40 @@ package cn.jiuyoung;
  */
 public class MatrixChain {
 
-    private int[][] m;
-    private int[][] s;
-    private int[]   p; 
-    private int     n;
+    private int[][]         m;
+    private int[][]         s;
+    private int[]           p; 
+    private int             n;
+    private String        str;
+    private boolean isExecute;
 
     public MatrixChain(int[] p) {
-        n = p.length -1;
-        m = new int[n + 1][n + 1];//m[1..n,1..n]
-        s = new int[n][n + 1]; //s[1..n-1, 2..n]
-        this.p = p;
-        matrixChainOrder();
+        this.n         = p.length -1;
+        this.m         = new int[n + 1][n + 1];//m[1..n,1..n]
+        this.s         = new int[n][n + 1]; //s[1..n-1, 2..n]
+        this.p         = p;
+        this.str       = "";
+        this.isExecute = false;
     }
     /**
      * 返回最优的乘法次数
-     * @return 最好的代价
+     * @return 最好的代价/没有执行时返回-1
      */
     public int getOptimalCoast() {
-        return m[1][n];
+        return isExecute ? m[1][n] : -1;
     }
     /**
      * 构造并返回最优划分的字符串表示
-     * @return 最优划分的字符串表示
+     * @return 最优划分的字符串表示/没有执行时返回为空字符串
      */
-    public String optimalParens2String() {
-        //StringBuilder str = new StringBuilder("The optimal partition is: ");
-        StringBuilder str = new StringBuilder();
-        this.optimalParens(1, n, str);
-        return str.toString();
+    public String getOptimalParens() {
+        
+        return str;
     }
     /**
      * 自底向上计算辅助表m和s
-     * @param p
-     * @param m
-     * @param s
      */
-    private void matrixChainOrder() {
+    public void execute() {
         for(int i = 0; i <= n; i++) {
             m[i][i] = 0;
         }
@@ -57,6 +55,9 @@ public class MatrixChain {
                 }
             }
         }
+        StringBuilder builder = new StringBuilder();
+        this.optimalParens(1, n, builder);
+        this.str = builder.toString();
     }
     /**
      * 递归构造最优划分

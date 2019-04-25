@@ -1,6 +1,6 @@
 package cn.jiuyoung;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
@@ -10,38 +10,38 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 /**
- * LCSubsequenceTest
+ * LCSubstringTest
+ * 默认采用加入等号的条件，结果是最后一个满足LCS的子串
  */
 @RunWith(Parameterized.class)
-public class LCSubsequenceTest {
+public class LCSubstringTest {
 
     private String inputX;
     private String inputY;
     private String expect;
 
-
-    public LCSubsequenceTest(String inputX, String inputY, String expect) {
+    public LCSubstringTest(String inputX, String inputY, String expect) {
         this.inputX = inputX;
         this.inputY = inputY;
         this.expect = expect;
     }
-    
-    @Parameters(name="{index}:LCSubsequence({0}, {1})={2}")
+
+    @Parameters(name="case {index} : LCSubstring({0}, {1})={2}")
     public static Iterable<Object[]> data() {
         return Arrays.asList(
             new Object[][] {
-                {"xzyzzyx", "zxyyzxz", "xyzz"},
+                {"xzyzzyx", "zxyyzxz", "yz"},
                 {"MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCALLAAQANKESSSESFISRLLAIVAD",
                     "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCTLLAAQANKENSNESFISRLLAIVAG",
-                    "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCLLAAQANKESESFISRLLAIVA"
+                    "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRC"
                 }
             }
         );
     }
 
     @Test
-    public void testLCSubsequence() {
-        LCSubsequence lcs = new LCSubsequence(inputX, inputY);
+    public void testLCString() {
+        LCSubstring lcs = new LCSubstring(inputX, inputY);
         lcs.execute();
         assertEquals(expect, lcs.getResult());
     }

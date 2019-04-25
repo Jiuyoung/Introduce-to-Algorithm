@@ -43,7 +43,8 @@ public class MatrixChainTest {
 
     @Test
     public void testMatrixChain() {
-        
-        assertEquals(this.fExpect, new MatrixChain(this.fInput).optimalParens2String());
+        MatrixChain matrixChain = new MatrixChain(this.fInput);
+        matrixChain.execute();
+        assertEquals(this.fExpect, matrixChain.getOptimalParens());
     }
 }
