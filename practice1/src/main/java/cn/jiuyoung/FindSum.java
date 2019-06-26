@@ -2,6 +2,29 @@ package cn.jiuyoung;
 
 public class FindSum {
 
+    static int[] result = new int[2];
+
+    public static void main(String[] args) {
+        int[] test1 = {3, 432, 535, 162, 34, 64, 755, 7};
+        int   sum1 = 226;
+        int   sum2 = 534;
+
+        if(FindSum.findSum(test1, sum1)) {
+            System.out.println("集合中有两个数的和为: " + sum1 + " = " + result[0] + " + " + result[1]);
+        }
+        else {
+            System.out.println("集合中没有两个数的和为: " + sum1);
+        }
+
+        if(FindSum.findSum(test1, sum2)) {
+            System.out.println("集合中有两个数的和为: " + sum2 + " = " + result[0] + " + " + result[1]);
+        }
+        else {
+            System.out.println("集合中没有两个数的和为: " + sum2);
+        }
+    }
+
+    
     public static boolean findSum(int[] a, int sum) {
         //归并排序 时间复杂度为nlowergn
         MergeSort.sort(a);
@@ -15,6 +38,8 @@ public class FindSum {
         while(lower != hight) {
             int t = a[lower] + a[hight];
             if(t == sum) {
+                result[0] = a[lower];
+                result[1] = a[hight];
                 return true;
             }
             else if (t > sum) {
@@ -76,7 +101,7 @@ public class FindSum {
     
         public static void merge(int[] temp, int[] a, int[] b) {
             int i = 0, j = 0;
-            for(int k = 0; k < temp.length - 1; k++) {
+            for(int k = 0; k < temp.length; k++) {
                 if (i >= a.length) {
                     temp[k] = b[j];
                 }

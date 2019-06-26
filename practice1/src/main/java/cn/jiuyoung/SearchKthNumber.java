@@ -7,6 +7,20 @@ package cn.jiuyoung;
  */
 public class SearchKthNumber {
 
+    public static void main(String[] args) {
+        int[] a = {1, 23, 56, 78, 90, 139, 26666, 335576};
+        int[] b = {2, 4, 57, 88, 94, 290, 34343666};
+        int[] aAndB = new int[a.length + b.length];
+        FindSum.MergeSort.merge(aAndB, a, b);
+        System.out.println("测试排序后的结果：");
+        for (int i : aAndB) {
+            System.out.print(i + "  ");
+        }
+        System.out.println();
+
+        System.out.println("第5大的元素为：" + SearchKthNumber.Search(a, b, 5));
+    }
+
     public static int Search(int[] a, int[] b, int k) {
 
         //转换为找第K小的数

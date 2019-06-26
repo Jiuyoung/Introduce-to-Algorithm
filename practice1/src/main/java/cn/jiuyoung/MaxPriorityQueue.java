@@ -17,6 +17,21 @@ public class MaxPriorityQueue {
         queue = new int[maxCapacity + 1];
     }
 
+    public static void main(String[] args) {
+        int[] a = {3, 432, 535, 162, 34, 64, 755, 7};
+        MaxPriorityQueue pq = new MaxPriorityQueue(a.length);
+        for (int i : a) {
+            pq.insert(i);
+        }
+        System.out.println("创建队列完成!");
+        System.out.println("调用extractMax(): " + pq.extractMax());
+        System.out.println("调用maximum(): " + pq.maximum());
+        System.out.println("调用insert(700) ");
+        pq.insert(700);
+        System.out.println("调用maximum(): " + pq.maximum());
+
+    }
+
     /**
      * 每次插入一个元素并保证满足大顶堆的性质 
      * @param x
@@ -59,8 +74,8 @@ public class MaxPriorityQueue {
             queue[parent]   = queue[parent] + queue[position];
             queue[position] = queue[parent] - queue[position];
             queue[parent]   = queue[parent] - queue[position];
-            position = parent;
-            parent   = position / 2;
+            position        = parent;
+            parent          = position / 2;
         }
     }
 

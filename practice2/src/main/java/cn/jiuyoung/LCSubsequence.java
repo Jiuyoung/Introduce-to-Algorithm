@@ -20,6 +20,22 @@ public class LCSubsequence {
         str       = "";
     }
 
+    public static void main(String[] args) {
+        String x1 = "xzyzzyx", x2 = "zxyyzxz";
+        String y1 = "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCALLAAQANKESSSESFISRLLAIVAD";
+        String y2 = "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCTLLAAQANKENSNESFISRLLAIVAG";
+        LCSubsequence lcsx = new LCSubsequence(x1, x2);
+        LCSubsequence lcsy = new LCSubsequence(y1, y2);
+        lcsx.execute();
+        lcsy.execute();
+        System.out.println(x1);
+        System.out.println(x2);
+        System.out.println("的最长公共子序列为：" + lcsx.getResult());
+        System.out.println(y1);
+        System.out.println(y2);
+        System.out.println("的最长公共子序列为：" + lcsy.getResult());
+    }
+
     /**
      * 返回计算结果
      * @return String 空或者最长公共子序列中的一个

@@ -20,6 +20,37 @@ public class MatrixChain {
         this.str       = "";
         this.isExecute = false;
     }
+
+    public static void main(String[] args) {
+        int[] t1 = {3, 5, 2, 1, 10};
+        int[] t2 = {2, 7, 3, 6, 10};
+        int[] t3 = {10, 3, 15, 12, 7, 2};
+        int[] t4 = {7, 2, 4, 15, 20, 5};
+        MatrixChain m1 = new MatrixChain(t1);
+        MatrixChain m2 = new MatrixChain(t2);
+        MatrixChain m3 = new MatrixChain(t3);
+        MatrixChain m4 = new MatrixChain(t4);
+        m1.execute();
+        m2.execute();
+        m3.execute();
+        m4.execute();
+        print(t1);
+        System.out.println("结果为：" + m1.getOptimalParens() + " 乘法次数：" + m1.getOptimalCoast());
+        print(t2);
+        System.out.println("结果为：" + m2.getOptimalParens() + " 乘法次数：" + m2.getOptimalCoast());
+        print(t3);
+        System.out.println("结果为：" + m3.getOptimalParens() + " 乘法次数：" + m3.getOptimalCoast());
+        print(t4);
+        System.out.println("结果为：" + m4.getOptimalParens() + " 乘法次数：" + m4.getOptimalCoast());
+    }
+
+    public static void print(int[] t) {
+        for (int i : t) {
+            System.out.print(i + "  ");
+        }
+        System.out.println();
+    }
+
     /**
      * 返回最优的乘法次数
      * @return 最好的代价/没有执行时返回-1
@@ -58,6 +89,7 @@ public class MatrixChain {
         StringBuilder builder = new StringBuilder();
         this.optimalParens(1, n, builder);
         this.str = builder.toString();
+        isExecute = true;
     }
     /**
      * 递归构造最优划分

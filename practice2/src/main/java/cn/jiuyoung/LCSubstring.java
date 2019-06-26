@@ -17,6 +17,22 @@ public class LCSubstring {
         str = "";
     }
 
+    public static void main(String[] args) {
+        String x1 = "xzyzzyx", x2 = "zxyyzxz";
+        String y1 = "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCALLAAQANKESSSESFISRLLAIVAD";
+        String y2 = "MAEEEVAKLEKHLMLLRQEYVKLQKKLAETEKRCTLLAAQANKENSNESFISRLLAIVAG";
+        LCSubstring lcsx = new LCSubstring(x1, x2);
+        LCSubstring lcsy = new LCSubstring(y1, y2);
+        lcsx.execute();
+        lcsy.execute();
+        System.out.println(x1);
+        System.out.println(x2);
+        System.out.println("的最长公共子串为：" + lcsx.getResult());
+        System.out.println(y1);
+        System.out.println(y2);
+        System.out.println("的最长公共子串为：" + lcsy.getResult());
+    }
+
     /**
      * 执行程序
      */

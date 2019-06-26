@@ -26,3 +26,5 @@
 
 ### Visual Studio Code ###
 .vscode
+*.pdf
+*.docx
