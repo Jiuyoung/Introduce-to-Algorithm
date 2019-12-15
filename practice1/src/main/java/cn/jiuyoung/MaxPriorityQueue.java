@@ -70,7 +70,8 @@ public class MaxPriorityQueue {
     private void swim(int position) {
         int parent = position / 2;
         while (position > 1 && queue[parent] < queue[position]) {
-            //原地置换两个数据
+            //原地置换两个数据 
+            //前提是两个数之和不会溢出
             queue[parent]   = queue[parent] + queue[position];
             queue[position] = queue[parent] - queue[position];
             queue[parent]   = queue[parent] - queue[position];
